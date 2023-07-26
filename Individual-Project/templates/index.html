@@ -6,6 +6,7 @@
   <title>Fachook</title>
   <link rel="stylesheet" href="styles.css">
 
+<!--  <---------------   background img   --------------------> 
 <style>
 body {
   background-image: url('https://img.freepik.com/free-vector/gradient-galaxy-background_23-2148983655.jpg?w=1380&t=st=1690397287~exp=1690397887~hmac=04b1b8fbbdb80bb44a29a0e9898dd001802d60128af0fe223b97350f2ebbe56f');
@@ -19,6 +20,9 @@ body {
 </style>
 
 </head>
+
+<!--  <---------------   header   -------------------->
+
 <body>
   <header>
     <div class="logo">Facespace</div>
@@ -32,7 +36,7 @@ body {
     </nav>
   </header>
 
-
+ <!--  <---------------   add post form   -------------------->
 <form method="POST" action="/add_posts">
     <label></label>
     <input type="text" name="title" placeholder="title" style="color:blue;">
@@ -48,13 +52,16 @@ body {
     <p></p>
   </footer>
 
-
+<!--  <---------------   nasa data getter form   -------------------->
 
   <form action="/get_nasa_data" method="post">
         <label for="date"><h3 style = " color : red;">Enter Date (YYYY-MM-DD): </h3></label>
         <input type="text" id="date" name="date" required>
         <button type="submit">Get NASA Data</button>
     </form>
+
+<!--  <---------------   nasa data display   -------------------->
+
     <div id="nasa-data">
         <!-- NASA data will be displayed here -->
     </div>
@@ -70,6 +77,9 @@ body {
 
 </body>
 </html>
+
+<!--  <---------------   style   -------------------->
+
 <style type="text/css">
   
 body {
@@ -160,15 +170,3 @@ main {
 
 
 </style>
-
-
-
-
-<!--   <main>
-    <div class="profile-card">
-      <img src="profile-picture.jpg" alt="User Profile Picture">
-      <h2>John Doe</h2>
-      <p>Web Developer | Social Media Enthusiast</p>
-      <button>Add Friend</button>
-    </div>
-    <-- Add more content here -->

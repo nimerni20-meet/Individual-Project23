@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <title>posts</title>
 
+<!--  <---------------   background-image   -------------------->
+
+
 <style>
+
 body {
   background-image: url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
 }
+
+
+.nim{
+font-size: 50px;
+
+}
+.er{
+
+font-size: 40px;	
+}
 </style>
 
+<!--  <---------------   button home   -------------------->
 
 <div>
     <a href="/home"><button>home</button></a>
@@ -20,78 +35,32 @@ body {
 
 
 </head>
+
+<!--  <---------------   posts display   -------------------->
+
 <body>
 	
 	<title>All posts*</title>
  	<h5>
 	{% for pos in posts %}
-	<p> <strong>titel*:</strong>
-		<li> {{posts[pos]['title']}} </li>
+	<p class="nim">  <strong>titel*:</strong>
+		<li class="er"> {{posts[pos]['title']}} </li>
 	</p>
 
-	<p> <strong>text*:</strong>
-		<li> {{posts[pos]['text']}} </li>
+	<p class="nim"> <strong>text*:</strong>
+		<li class="er"> {{posts[pos]['text']}} </li>
 	</p>
 	{% endfor %}
 	
 
-
+<!--  <---------------   style   -------------------->
 
 </body>
 <style type="text/css">
 	
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f2f5;
-  color: #333;
-}
-
-h1 {
-  text-align: center;
-  padding: 20px;
-}
-
-.posts-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.post-card {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-}
-
-.post-card h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.post-card p {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.post-card .author {
-  color: #666;
-}
-
-.post-card .timestamp {
-  color: #666;
-  font-size: 14px;
-}
-
-.like-button {
-  padding: 8px 16px;
+button {
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -99,13 +68,22 @@ h1 {
   background-color: #007bff;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
-.like-button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
+/* Additional styles for post display */
+h5 {
+  text-align: center;
+  padding: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}
 
 
 </style>

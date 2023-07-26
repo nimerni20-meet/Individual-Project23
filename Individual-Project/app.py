@@ -31,7 +31,7 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 
 
 
-
+# <---------------signup function-------------------->
 
 @app.route('/', methods=['GET', 'POST'])
 def signup():
@@ -50,11 +50,11 @@ def signup():
             return redirect(url_for('signin'))
         except:
             error = "Authentication failed"
-    return render_template("singup.html")
+    return render_template("index.html")
 
 
 
-
+# <---------------home function-------------------->
 
 @app.route('/home',methods=['GET','POST'])
 def home():
@@ -63,7 +63,7 @@ def home():
 
 
 
-
+# <---------------signin function-------------------->
 
 @app.route('/singin', methods=['GET', 'POST'])
 def signin():
@@ -84,7 +84,7 @@ def signin():
 
 
 
-
+# <---------------profile function-------------------->
 
 @app.route('/profile')
 def profile():
@@ -98,6 +98,8 @@ def profile():
     return render_template("profile.html")
 
 
+# <---------------users function-------------------->
+
 @app.route('/users')
 def users():
     try:
@@ -106,6 +108,9 @@ def users():
     except:
         error = "Authentication failed"
     return render_template("users.html")
+
+# <---------------locating users function-------------------->
+
 
 @app.route('/user/<string:fid>', methods=['GET','POST'])
 def add_friend(fid):
@@ -118,6 +123,7 @@ def add_friend(fid):
     except:
         return "Authentication failed"
 
+# <---------------friend_exists function-------------------->
 
 def friend_exists(fUID):
     friends = db.child("user").child(UID).child("friends").get().val()
@@ -126,7 +132,7 @@ def friend_exists(fUID):
             return True
     return False
 
-
+# <---------------add posts function-------------------->
 
 @app.route('/add_posts', methods=['GET', 'POST'])
 def add_posts():
@@ -147,12 +153,14 @@ def add_posts():
             error = "Authentication failed"
     return render_template("index.html")
 
+# <---------------show posts function-------------------->
+
 @app.route('/all_posts')
 def all_posts():
     posts=db.child('posts').get().val()
     return render_template("posts.html",posts=posts)
 
-
+# <---------------nasa api getter function-------------------->
 
 @app.route('/get_nasa_data', methods=['POST'])
 def get_nasa_data():
@@ -168,7 +176,7 @@ def get_nasa_data():
         return 'Error fetching data from NASA API.'
 
 
-
+# <---------------sign out function-------------------->
 
 @app.route('/signout')
 def signout():
