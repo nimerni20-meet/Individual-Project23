@@ -16,6 +16,7 @@ body {
 }
 .ali{
     color: white;
+    font-size: 25px;
 }
 </style>
 
@@ -35,7 +36,7 @@ body {
       </ul>
     </nav>
   </header>
-
+<h6 class="ali"> give me a titel and a text you want to post:</h6>
  <!--  <---------------   add post form   -------------------->
 <form method="POST" action="/add_posts">
     <label></label>
@@ -55,7 +56,7 @@ body {
 <!--  <---------------   nasa data getter form   -------------------->
 
   <form action="/get_nasa_data" method="post">
-        <label for="date"><h3 style = " color : red;">Enter Date (YYYY-MM-DD): </h3></label>
+        <label for="date"><h3 style = " color : red;">Enter Date (YYYY-MM-DD) for it to give you the data: </h3></label>
         <input type="text" id="date" name="date" required>
         <button type="submit">Get NASA Data</button>
     </form>
@@ -170,3 +171,6 @@ main {
 
 
 </style>
+
+
+
