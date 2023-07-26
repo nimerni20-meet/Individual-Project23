@@ -3,62 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fachook</title>
+  <title>User Profile</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="logo">Fachook</div>
+    <div class="logo">profile page</div>
     <nav>
       <ul>
+        <li><a href="/home">Home</a></li>
         <li><a href="/profile">Profile</a></li>
-        <li><a href="#">Friends</a></li>
         <li><a href="/signout">Logout</a></li>
-        <li><a href="/users">users</a></li>
       </ul>
     </nav>
   </header>
+  <main>
+    <div class="profile-card">
+      <img src="profile-picture.jpg" alt="User Profile Picture">
+      <h2>{{ info['name'] }}</h2>
 
+      <div class="profile-info">
+      	<p><strong>bio:</strong>  {{ info['bio'] }}   </p>
+        <p><strong>Email:</strong>
+         {{ info['email'] }}
 
-<form method="POST" action="/add_posts">
-    <label> Title</label>
-    <input type="text" name="title">
-    <label>Text</label>
-    <input type="text" name="text">
-    <button type="submit">submit</button>
-</form>
-
-
-
+     </p>
+        <p><strong>Location:</strong> {{ info['locaion'] }}</p>
+      </div>
+    </div>
+    <!-- Add more content here -->
   </main>
   <footer>
-    <p></p>
+
   </footer>
-
-
-
- 
-
-
-
 </body>
 </html>
+
 <style type="text/css">
-  
+	
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f2f5;
+  color: #333;
 }
 
 header {
-  background-color: #4267B2;
+  background-color: #007bff;
   color: #fff;
-  padding: 10px;
-  display: flex;
-  align-items: center;
+  padding: 20px;
+  text-align: center;
 }
+
 
 .logo {
   font-size: 24px;
@@ -86,9 +83,16 @@ nav a:hover {
   border-radius: 3px;
 }
 
+
+
+
 main {
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
 }
+
+
 
 .profile-card {
   text-align: center;
@@ -99,47 +103,40 @@ main {
 }
 
 .profile-card img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .profile-card h2 {
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .profile-card p {
   color: #666;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.profile-card button {
-  background-color: #4267B2;
+.profile-info {
+  margin-top: 30px;
+}
+
+.profile-info p {
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #007bff;
   color: #fff;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 14px;
+  text-align: center;
+  padding: 10px;
 }
 
-.profile-card button:hover {
-  background-color: #385898;
+footer p {
+  margin: 0;
 }
 
 
 </style>
-
-
-
-
-<!--   <main>
-    <div class="profile-card">
-      <img src="profile-picture.jpg" alt="User Profile Picture">
-      <h2>John Doe</h2>
-      <p>Web Developer | Social Media Enthusiast</p>
-      <button>Add Friend</button>
-    </div>
-    <-- Add more content here -->

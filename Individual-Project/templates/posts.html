@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>posts</title>
+</head>
+<body>
+	
+	<title>All posts*</title>
+ 	<h5>
+	{% for pos in posts %}
+	<p> <strong>titel*:</strong>
+		<li> {{posts[pos]['title']}} </li>
+	</p>
+
+	<p> <strong>text*:</strong>
+		<li> {{posts[pos]['text']}} </li>
+	</p>
+	{% endfor %}
+	
+
+
+
+
+
+</body>
+<style type="text/css">
+	
+
+
+
+	
+</style>
