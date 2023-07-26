@@ -29,12 +29,6 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 
 
 
-parameters = {"camera": "NAVCAM"} # Shows Navigation Camera photos only.
-
-response = requests.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=faRn6vfvjvAmibI3UeuCfdYb3S4BFBP7rAPSfsu2", params = parameters)
-
-print(response.content)
-
 
 
 
@@ -157,6 +151,23 @@ def add_posts():
 def all_posts():
     posts=db.child('posts').get().val()
     return render_template("posts.html",posts=posts)
+
+
+
+@app.route('/get_nasa_data', methods=['POST'])
+def get_nasa_data():
+    api_key = 'AyAStJue775Nug4PO8vSvRXIYCorJao9QovOAlha'
+    date = request.form['date']
+    url = f'https://api.nasa.gov/planetary/apod?date={date}&api_key={api_key}'
+    
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return render_template('index.html', nasa_data=data)
+    else:
+        return 'Error fetching data from NASA API.'
+
+
 
 
 @app.route('/signout')

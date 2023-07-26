@@ -5,26 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fachook</title>
   <link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+  background-image: url('https://img.freepik.com/free-vector/gradient-galaxy-background_23-2148983655.jpg?w=1380&t=st=1690397287~exp=1690397887~hmac=04b1b8fbbdb80bb44a29a0e9898dd001802d60128af0fe223b97350f2ebbe56f');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+.ali{
+    color: white;
+}
+</style>
+
 </head>
 <body>
   <header>
-    <div class="logo">Fachook</div>
+    <div class="logo">Facespace</div>
     <nav>
       <ul>
         <li><a href="/profile">Profile</a></li>
-        <li><a href="/signout">Logout</a></li>
         <li><a href="/users">users</a></li>
         <li><a href="/all_posts">posts</a></li>
+        <li><a href="/signout">Logout</a></li>
       </ul>
     </nav>
   </header>
 
 
 <form method="POST" action="/add_posts">
-    <label> Title</label>
-    <input type="text" name="title">
-    <label>Text</label>
-    <input type="text" name="text">
+    <label></label>
+    <input type="text" name="title" placeholder="title" style="color:blue;">
+    <label></label>
+    <input type="text" name="text" placeholder="text" style="color:blue;">
     <button type="submit">submit</button>
 </form>
 
@@ -37,9 +50,23 @@
 
 
 
+  <form action="/get_nasa_data" method="post">
+        <label for="date"><h3 style = " color : red;">Enter Date (YYYY-MM-DD): </h3></label>
+        <input type="text" id="date" name="date" required>
+        <button type="submit">Get NASA Data</button>
+    </form>
+    <div id="nasa-data">
+        <!-- NASA data will be displayed here -->
+    </div>
+
  
-
-
+    <div id="nasa-data">
+        {% if nasa_data %}
+            <h2 class="ali">{{ nasa_data.title }}</h2>
+            <p class="ali">{{ nasa_data.explanation }}</p>
+            <img src="{{ nasa_data.url }}" alt="{{ nasa_data.title }}">
+        {% endif %}
+    </div>
 
 </body>
 </html>
@@ -51,6 +78,8 @@ body {
   padding: 0;
   background-color: #f0f2f5;
 }
+
+
 
 header {
   background-color: #4267B2;
