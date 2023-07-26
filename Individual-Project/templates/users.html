@@ -19,11 +19,11 @@
         <div class="user-card">
             <p>
             	<td>
-					<a href="/users/{{info[user]['name']}}" style="text-decoration: none; color: inherit;">{{info[user]['name']}}</a>
+					<p>{{info[user]['name']}}</p>
 				</td>
 
             	<td>
-					<a href="/user/{{info[user]['name']}}" style="text-decoration: none; color:darkred; inherit;">Add friend</a>
+					<a href="/user/{{info[user]['UID']}}" style="text-decoration: none; color:darkred; inherit;">Add friend</a>
 				</td>
 
 			</tr>
@@ -67,84 +67,52 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f2f5;
+  color: #333;
 }
 
-header {
-  background-color: #4267B2;
-  color: #fff;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 20px;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  padding: 5px 10px;
-}
-
-nav a:hover {
-  background-color: #4a69ad;
-  border-radius: 3px;
-}
-
-main {
+h1 {
+  text-align: center;
   padding: 20px;
 }
 
-.profile-card {
-  text-align: center;
+.users-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-card {
   background-color: #fff;
   border-radius: 5px;
-  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  min-width: 200px;
 }
 
-.profile-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.user-card p {
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
-.profile-card h2 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.profile-card p {
-  color: #666;
-  font-size: 14px;
-}
-
-.profile-card button {
-  background-color: #4267B2;
-  color: #fff;
+.add-friend-button {
+  display: inline-block;
+  padding: 8px 16px;
   border: none;
-  padding: 8px 20px;
-  border-radius: 3px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
   cursor: pointer;
-  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.profile-card button:hover {
-  background-color: #385898;
+.add-friend-button:hover {
+  background-color: #0056b3;
 }
-
 
 </style>

@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
+import json
+import requests 
 
 
 config = {
@@ -26,6 +28,17 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 #Code goes below here
 
 
+
+parameters = {"camera": "NAVCAM"} # Shows Navigation Camera photos only.
+
+response = requests.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=faRn6vfvjvAmibI3UeuCfdYb3S4BFBP7rAPSfsu2", params = parameters)
+
+print(response.content)
+
+
+
+
+
 @app.route('/', methods=['GET', 'POST'])
 def signup():
     error = ""
@@ -38,7 +51,7 @@ def signup():
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
             UID = login_session['user']['localId']
-            user={"email":email,"password":password,"bio":bio,"locaion":locaion,"name":name}
+            user={"email":email,"password":password,"bio":bio,"locaion":locaion,"name":name, "UID":UID}
             db.child("user").child(UID).set(user)
             return redirect(url_for('signin'))
         except:
@@ -100,15 +113,24 @@ def users():
         error = "Authentication failed"
     return render_template("users.html")
 
-@app.route('/user/<string:name>', methods=['GET','POST'])
-def add_friend(name):
+@app.route('/user/<string:fid>', methods=['GET','POST'])
+def add_friend(fid):
     try:
         UID = login_session['user']['localId']
-        exp_1 = db.child("user").child(UID).child("friends").push({'name':name})
+        if friend_exists(fid) == False:
+            exp_1 = db.child("user").child(UID).child("friends").push({'UID':fid})
+            # exp_2 = db.child("user").child(UID).update(updated)
         return redirect(url_for('users'))
     except:
         return "Authentication failed"
 
+
+def friend_exists(fUID):
+    friends = db.child("user").child(UID).child("friends").get().val()
+    for ID in friends:
+        if ID == fUID:
+            return True
+    return False
 
 
 
